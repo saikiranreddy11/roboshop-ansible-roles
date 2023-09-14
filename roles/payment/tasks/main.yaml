@@ -1,11 +1,7 @@
-- name: Installing the python
-  ansible.builtin.yum:
-    name: "{{item}}"
-    state: installed
-  loop:
-  - python36
-  - gcc
-  - python3-devel
+- name: installing python
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: install_python
 
 
 - name: creating user and directory

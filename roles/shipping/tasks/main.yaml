@@ -1,7 +1,7 @@
-- name: Installing the maven
-  ansible.builtin.yum:
-    name: maven
-    state: installed
+- name: install maven 
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: install_maven
 
 - name: creating user and directory
   ansible.builtin.import_role:
