@@ -1,7 +1,3 @@
-- name: Install Redis component
-  hosts: redis
-  become: yes
-  tasks:
 - name: Install redis repo
   ansible.builtin.yum:
     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
