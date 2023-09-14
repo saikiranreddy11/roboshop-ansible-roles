@@ -8,10 +8,15 @@
     name: mongodb-org
     state: installed
 
-- name: enabling and starting the mongodb
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: enabling_starting_service
+- name: enabling the mongodb
+  ansible.builtin.service:
+    name: mongod
+    enabled: yes
+
+- name: starting the mongodb
+  ansible.builtin.service:
+    name: mongod
+    state: started
 
 - name: replacing 127.0.0.1 by 0.0.0.0
   ansible.builtin.replace:
