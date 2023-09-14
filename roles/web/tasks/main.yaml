@@ -28,7 +28,7 @@
   ansible.builtin.template:
     src: templates/roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
-  notify:  #this will triger the handler
+  notify:                                                #this will triger the handler
   - restart_nginx
 
 
