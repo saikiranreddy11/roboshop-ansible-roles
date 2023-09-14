@@ -1,5 +1,5 @@
 - name: setting up the mongodb repo file
-  ansible.builtin.import_role:
+  ansible.builtin.copy:
     src: mongodb.repo
     dest: /etc/yum.repos.d/mongo.repo
 
