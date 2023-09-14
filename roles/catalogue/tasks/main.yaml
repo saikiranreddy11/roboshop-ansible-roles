@@ -20,7 +20,7 @@
 
 - name: copying the catalogue.service
   ansible.builtin.copy:
-    src: /home/centos/roboshop-ansible/catalogue.service
+    src: catalogue.service
     dest: /etc/systemd/system/catalogue.service
 
 
@@ -30,20 +30,18 @@
     name: catalogue
 
 - name: enabling the catalogue
-  ansible.builtin.service:
-    name: catalogue
-    enabled: yes
-    state: restarted
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: enabling_starting_service
+    
 
   - name: setting up the mongodb repo file
-    ansible.builtin.copy:
-      src: /home/centos/roboshop-ansible/mongodb.repo
-      dest: /etc/yum.repos.d/mongo.repo
+    ansible.builtin.import_role:
+      name: common
+      tasks_from: mongoclient
 
-  - name: installing the mongodbshell
-    ansible.builtin.yum:
-      name: mongodb-org-shell
-      state: installed
 
   - name: loading the schema
-    ansible.builtin.command: mongo --host mongodb.saikiransudhireddy.com < /app/schema/catalogue.js
+    ansible.builtin.import_role:
+      name: common
+      tasks_from: loadschema
