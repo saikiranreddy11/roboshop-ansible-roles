@@ -1,7 +1,7 @@
 - name: checking the user
   ansible.builtin.command: id roboshop
-    register: output
-    ignore_errors: true
+  register: output
+  ignore_errors: true
 
 
 - name: Creating the user
