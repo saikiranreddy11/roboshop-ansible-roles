@@ -1,5 +1,5 @@
 - name: setting the roboshop
-  hosts: mongodb
+  hosts: {{component}}
   become: yes
   roles: 
-  - mongodb
+  - {{component}}
