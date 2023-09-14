@@ -35,13 +35,13 @@
     tasks_from: enabling_starting_service
     
 
-  - name: setting up the mongodb repo file
-    ansible.builtin.import_role:
-      name: common
-      tasks_from: mongoclient
+- name: setting up the mongodb repo file
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: mongoclient
 
 
-  - name: loading the schema
-    ansible.builtin.import_role:
-      name: common
-      tasks_from: loadschema
+- name: loading the schema
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: loadschema
