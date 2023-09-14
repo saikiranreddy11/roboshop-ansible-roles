@@ -25,9 +25,12 @@
     tasks_from: downloading_unarchiving
 
 - name: copying the reverse configuration files
-  ansible.builtin.copy:
-    src: roboshop.conf
+  ansible.builtin.template:
+    src: templates/roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
+  notify:
+  - restart_nginx
+  
 - name: restarting the nginx
   ansible.builtin.service:
     name: nginx
